@@ -1,0 +1,41 @@
+﻿@page
+@model MyApp.Namespace.RazorModel
+@{
+    ViewData["Title"] = "Razor";
+    ViewBag.PageName = "Razor";
+
+    List<string> courses = new List<string> {
+        "DT057G, Webbutveckling I", 
+        "DT093G, Webbutveckling II", 
+        "DT173G, Webbutveckling III",
+        "DT084G, Introduktion till programmering med JavaScript",
+        "DT003G, Databaser",
+        "DT152G, Webbdesign för CMS",
+        "GD008G, Typografi och form för webb"
+        };
+}
+
+<h2 class="text-focus-in">Razor</h2>
+<h4>Information</h4>
+
+<p><span class="bold-text">Datum/klockslag: </span>@DateTime.Now</p>
+
+<div class="condition-wrapper">
+    @{
+        DateTime dt = DateTime.Now;
+
+        if (dt.DayOfWeek == DayOfWeek.Monday) { <p>Idag är det måndag!</p> }
+        else { <p>Idag är det inte måndag</p> }
+            
+    }
+</div>
+
+<div class="courses-wrapper">
+    <h4>Kurser jag läst:</h4>
+    <ul>
+        @foreach (var course in courses)
+        {
+            <li>@course</li>
+        }
+    </ul>
+</div>

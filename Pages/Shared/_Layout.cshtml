@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="se">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"] - Moment 1</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-wrapper">
+                <a href="/"><img src="images/asp.net-logo.png" alt="ASP dot NET logo"></a>
+            </div>
+            <div class="date-wrapper">
+                <p>Dagens datum är: <span class="date-wrapper">@DateTime.Now.ToString("yyyy-mm-dd")</span></p>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <nav class="side-nav">
+                <button class="menuBtn">☰</button>
+                <ul>
+                    <li><button class="closeBtn">x</button></li>
+                    <li><a class='@((ViewBag.PageName == "Index") ? "active" : "")' href="/">Start</a></li>
+                    <li><a class='@((ViewBag.PageName == "Razor") ? "active" : "")' href="/razor">Razor</a></li>
+                    <li><a class='@((ViewBag.PageName == "About") ? "active" : "")' href="/about">About</a></li>
+                </ul>
+            </nav>
+            <main class="main-content">
+                @RenderBody()
+            </main>
+        </div>
+
+
+        <footer>
+            <p>Av Rickard Jonsson - Kontakta mig via e-post: <a href="mailto:rickaard@gmail.com">rickaard@@gmail.com</a></p>
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
